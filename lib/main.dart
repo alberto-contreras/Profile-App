@@ -4,7 +4,17 @@ void main() => runApp(MaterialApp(
   home: AlbertoProfile(),
 ));
 
-class AlbertoProfile extends StatelessWidget {
+class AlbertoProfile extends StatefulWidget {
+  @override
+  _AlbertoProfileState createState() => _AlbertoProfileState();
+}
+///Then also we return a TREE WIDGET that every time
+///that the data change the widget it's rebuild
+class _AlbertoProfileState extends State<AlbertoProfile> {
+
+  ///Here we define the data that change over time
+  int albertoLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +24,16 @@ class AlbertoProfile extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red,
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: ()
+          {
+            setState(() {
+              albertoLevel = albertoLevel + 1;
+            });
+          },
+          child: Icon(Icons.add),
+        backgroundColor: Colors.red,
       ),
       body: Padding(
           padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -64,7 +84,7 @@ class AlbertoProfile extends StatelessWidget {
                   ),
                   SizedBox(height: 10.0), //Space between two widgets
                   Text(
-                    '20',
+                    '$albertoLevel',
                     style: TextStyle(
                       color: Colors.red,
                       letterSpacing: 2.0,
@@ -98,7 +118,7 @@ class AlbertoProfile extends StatelessWidget {
                           child: Icon(Icons.group_add),
                       ),
                       Text('Add to Friends'),
-                      
+
 
                     ],
 
@@ -109,6 +129,5 @@ class AlbertoProfile extends StatelessWidget {
     );
   }
 }
-
 
 

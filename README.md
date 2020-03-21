@@ -1,6 +1,6 @@
-# albertoprofile
+# Albertoprofile
 
-A new Flutter application.
+A new Flutter application. Where you can see the basics of Flutter.
 
 ## Getting Started
 
